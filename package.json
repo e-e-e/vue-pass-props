@@ -6,7 +6,7 @@
   "module": "index.js",
   "scripts": {
     "prepublish": "npm run build",
-    "test": "npm run build && standard index.js && karma start",
+    "test": "npm run build && standard index.js && karma start ",
     "build": "rollup -c",
     "dev": "rollup -c -w"
   },
@@ -17,6 +17,10 @@
   ],
   "author": "Benjamin Forster",
   "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/e-e-e/vue-pass-props"
+  },
   "devDependencies": {
     "browserify": "^14.4.0",
     "eslint": "^4.3.0",
