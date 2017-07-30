@@ -1,0 +1,45 @@
+{
+  "name": "vue-pass-props",
+  "version": "1.0.0",
+  "description": "A component to help pass props to slots",
+  "main": "index.cjs.js",
+  "module": "index.js",
+  "scripts": {
+    "prepublish": "npm run build",
+    "test": "npm run build && standard index.js && karma start",
+    "build": "rollup -c",
+    "dev": "rollup -c -w"
+  },
+  "keywords": [
+    "vue",
+    "props",
+    "component"
+  ],
+  "author": "Benjamin Forster",
+  "license": "ISC",
+  "devDependencies": {
+    "browserify": "^14.4.0",
+    "eslint": "^4.3.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-node": "^5.1.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "karma": "^1.7.0",
+    "karma-browserify": "^5.1.1",
+    "karma-chrome-launcher": "^2.2.0",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-requirejs": "^1.1.0",
+    "karma-tap": "^3.1.1",
+    "requirejs": "^2.3.4",
+    "rollup": "^0.45.2",
+    "rollup-plugin-commonjs": "^8.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "standard": "^10.0.2",
+    "tape": "^4.7.0",
+    "vue": "^2.4.2"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4"
+  }
+}
