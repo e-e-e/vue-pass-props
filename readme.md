@@ -30,6 +30,18 @@ You may now use the component in your markup
 <pass-props :something="varToPass"><slot/></pass-props>
 ```
 
+## Attributes
+
+The list of props available
+
+**node**: Allows you to set the type of element that pass-props will be. Defaults to `div`.
+
+**class**: Is not passed down to slots.
+
+**style**: Is not passed down to slots.
+
+**[others]**: Any other attribute set are passed to the slots as if they were defined on them explicitly. These values will override any props set on the wrapped components.
+
 ## Basic usage
 
 Using the example above.
@@ -94,15 +106,4 @@ Now in the App, rather than explicitly setting the context on each MenuItem. We 
   </menu>
 ```
 
-## Attributes
-
-The list of props available
-
-**node**: Allows you to set the type of element that pass-props will be. Defaults to `div`.
-
-**class**: Is not passed down to slots.
-
-**style**: Is not passed down to slots.
-
-**[others]**: Any other attribute set are passed to the slots as if they were defined on them explicitly. These values will override any props set on the wrapped components.
 
