@@ -51,6 +51,30 @@ function TestComponentWithMultipleChildren () {
   return Vue.extend(Parent)
 }
 
+function TestComponentWithOveride () {
+  const TestWrapper = {
+    template: '<pass-props node="ul" :commonProp="commonProp"><slot/></pass-props>',
+    components: {
+      PassProps
+    },
+    props: ['commonProp']
+  }
+  const WrappedComponent = {
+    template: '<p>{{commonProp}}</p>',
+    props: ['commonProp']
+  }
+  const Parent = {
+    template: `<test-wrapper commonProp="shared">
+                <wrapped-component commonProp="overide"/>
+              </test-wrapper>`,
+    components: {
+      WrappedComponent,
+      TestWrapper
+    }
+  }
+  return Vue.extend(Parent)
+}
+
 tape('props passed to wrapper component are directly passed onto wrapped component', (t) => {
   const Ctor = TestComponentWithSingleChild()
   const vm = new Ctor({ propsData: {someData: 'ok'} }).$mount()
@@ -82,5 +106,12 @@ tape('Props passed to multiple children are shared by all', (t) => {
   const Ctor = TestComponentWithMultipleChildren()
   const vm = new Ctor().$mount()
   t.same(vm.$el.textContent, 'shared, 1 shared, 2 shared, 3')
+  t.end()
+})
+
+tape('Props passed override props explicitly declared on the child component', (t) => {
+  const Ctor = TestComponentWithOveride()
+  const vm = new Ctor().$mount()
+  t.same(vm.$el.textContent, 'shared')
   t.end()
 })
